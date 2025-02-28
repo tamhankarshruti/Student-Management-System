@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <title> Edit Student Details </title>
+{% endblock %}
+  
+{% block body %} 
+    <h1 class="text-center">Edit Student Here</h1>
+    <div class="container">
+        <form action="/edit/{{s.id}}" method="POST">
+
+            <div class="form-group">
+             <label for="inputName">Enter Student Name</label>
+             <input type="text" name="sname" value="{{s.name}}" class="form-control" id="studentName" placeholder="Enter Name">
+            </div>
+
+            <div class="form-group">
+            <label for="inputMarks">Enter Student Marks</label>
+            <input type="text" name="smarks" value="{{s.marks}}" class="form-control" id="studentMarks" placeholder="Enter Marks">
+            </div>
+
+            <div class="form-group">
+            <label for="inputRollNum">Enter Student Roll Number </label>
+            <input type="text" name="srollnum" value="{{s.roll_num}}" class="form-control" id="studentRollNum" placeholder="Enter Roll Num" >
+            </div>
+            
+            <center><button type="submit" class="btn btn-success">Save Changes</button></center>
+        </form>
+    </div>
+    {% endblock %}

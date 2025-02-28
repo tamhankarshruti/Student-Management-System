@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <title> Add Student Details </title>
+{% endblock %}
+  
+{% block body %} 
+    <h1 class="text-center">Add Student Here</h1>
+    <div class="container">
+        <form action="{{ url_for('add_view_stud')}}" method="POST">
+
+            <div class="form-group">
+             <label for="inputName">Enter Student Name</label>
+             <input type="text" name="sname" class="form-control" id="studentName" placeholder="Enter Name">
+            </div>
+
+            <div class="form-group">
+            <label for="inputMarks">Enter Student Marks</label>
+            <input type="text" name="smarks" class="form-control" id="studentMarks" placeholder="Enter Marks">
+            </div>
+
+            <div class="form-group">
+            <label for="inputRollNum">Enter Student Roll Number </label>
+            <input type="text" name="srollnum" class="form-control" id="studentRollNum" placeholder="Enter Roll Num" >
+            </div>
+            
+            <center><button type="submit" class="btn btn-primary" onclick="return confirmAdd();">Save</button></center>
+        </form>
+    </div>
+
+    <script>
+        function confirmAdd() {
+            return confirm("Student data saved successfully!!");
+        }
+    </script>
+    {% endblock %}

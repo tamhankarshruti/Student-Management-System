@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <title> List Student Details </title>
+{% endblock %}
+
+
+{% block body %}
+    <!-- {{data}} -->
+
+    <br>
+    <h1 class="text-center">List Student Details</h1>
+    <br>
+    
+    <div class="container">
+        
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">College Id</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Student Roll No.</th>
+                <th scope="col">Student Marks</th>
+                <th scope="col">Edit + </th>
+                <th scope="col">Delete - </th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for obj in data %}
+              <tr>
+                <th scope="row">{{obj.id}}</th>
+                <td>{{obj.name}}</td>
+                <td>{{obj.roll_num}}</td>
+                <td>{{obj.marks}}</td>
+                <td> <a href="edit/{{obj.id}}" class="btn btn-success btn-sm">Edit + </a></td>
+                <td> <a href="delete/{{obj.id}}" class="btn btn-danger btn-sm" onclick="return confirmDelete();">Delete - </a></td>
+
+              </tr>
+            {% endfor%}  
+            </tbody>
+          </table>
+          <br><br>
+          <a class="btn btn-primary btn-lg" href="/" role="button">Back To Home Page</a>
+    </div>
+
+    <script>
+      function confirmDelete() {
+          return confirm("Are you sure you want to delete this record?");
+      }
+  </script>
+
+
+{% endblock %}
+
